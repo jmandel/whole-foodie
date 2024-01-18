@@ -9,9 +9,7 @@ const page = defaultContext.pages()[0];
 
 async function searchItem(body) {
   // enter req.request.item.name into input id="twotabsearchtextbox"
-  await page.goto(
-    "https://www.amazon.com/alm/storefront?almBrandId=VUZHIFdob2xlIEZvb2Rz"
-  );
+  await page.goto( "https://www.amazon.com/alm/storefront?almBrandId=VUZHIFdob2xlIEZvb2Rz");
   await page.fill('input[id="twotabsearchtextbox"]', body.item.name);
   await page.click('input[id="nav-search-submit-button"]');
   await page.waitForLoadState();
@@ -41,14 +39,12 @@ async function searchItem(body) {
 }
 
 async function orderItem(items, i, quantity) {
-    // evaluate handle and click it
     await page.evaluate(async ([items, i]) => {
         console.log(items, i)
         console.log(items[i].source, "h2 a")
         items[i].source.querySelector("h2 a").click();
     }, [items, i]);
     await page.waitForLoadState();
-    // click  button with aria label matching regex /quantity/
     await page.click('button[aria-label*="quantity"]');
 
     console.log("Choosing quantity")
@@ -60,30 +56,6 @@ async function orderItem(items, i, quantity) {
     await page.click("#freshAddToCartButton input");
     console.log("Added to cart")
 }
-
-// const chickens = await searchItem({
-//   requestId: "1234",
-//   request: {
-//     recipeName: "Chicken Parm",
-//     item: {
-//       name: "Chicken Breast Skinless Boneless",
-//       quantity: {
-//         amount: 2,
-//         unit: "lbs",
-//       },
-//       preferences: {
-//         brand: "Tyson",
-//         organic: true,
-//         local: false,
-//       },
-//     },
-//     urgencyLevel: "high",
-//   },
-// });
-
-// console.log("Items", await chickens.jsonValue());
-// await orderItem(chickens, 0, 3);
-
 
 // Express web server to receive POSTed request json
 const app = express();
