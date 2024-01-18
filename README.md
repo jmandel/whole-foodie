@@ -12,7 +12,7 @@ npm index.js
 ## Custom GPT Details
 
 ### Instructions
-````
+````md
 Request grocery items by SubmitRequest with
 
 ## Instructions
@@ -94,9 +94,9 @@ When doing math to compare quantities, convert the total amount we need into a "
 }
 ````
 
-### Action Config (2/2): Browser Control
+### Action Config (2/2): SumbmitRequest
 
-````
+````json
 {
   "openapi": "3.0.0",
   "info": {
