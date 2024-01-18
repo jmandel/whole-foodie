@@ -53,7 +53,7 @@ Note 1: When doing GroceryItemRequestFollowUp consider the set of items availabl
 When doing math to compare quantities, convert the total amount we need into a "# to purchase" based on the search result item description.  For example if you need 5 lb carrots and you are looking at an item like "1 bunch", estimate that a bunch weighs 2.5 lb and therefore populate selectItemQuantity with 2. Do careful math and state your assumptions briefly.
 ````
 
-### Action Config (1/2): GetRecipe
+### Action Config (1/2): `GetRecipeJSON`
 
 ````json
 {
@@ -94,7 +94,7 @@ When doing math to compare quantities, convert the total amount we need into a "
 }
 ````
 
-### Action Config (2/2): SumbmitRequest
+### Action Config (2/2): `SubmitRequest`
 
 ````json
 {
